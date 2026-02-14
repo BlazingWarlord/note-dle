@@ -10,11 +10,14 @@
     <div id="game-board">
         </div>
 
-    <div class="controls">
-        <button onclick="playSequence(targetSequence)">👂 Listen to Target</button>
-        <button id="submit-btn" disabled onclick="submitGuess()">Check Guess</button>
-        <button onclick="resetGame()">New Game</button>
-    </div>
+        <div class="controls">
+            <button onclick="playSequence(targetSequence)">👂 Listen to Target</button>
+            <button id="submit-btn" disabled onclick="submitGuess()">Check Guess</button>
+            <hr style="border: 0.5px solid #333; margin: 20px 0;">
+            <button class="mode-btn" onclick="initGame(5, 5, this)">Beginner (5/5)</button>
+            <button class="mode-btn" onclick="initGame(5, 3, this)">Medium (5/3)</button>
+            <button class="mode-btn" onclick="initGame(8, 3, this)" style="color: #ff4444;">Hard (8/3)</button>
+        </div>
 
     <div class="keypad">
         <button onclick="addNote('C')">C</button>
