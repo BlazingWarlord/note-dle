@@ -129,3 +129,14 @@ h1 { letter-spacing: 2px; text-transform: uppercase; margin-bottom: 30px; }
         opacity: 0;
     }
 }
+
+.active-mode {
+    background: var(--accent) !important;
+    color: white !important;
+    box-shadow: 0 0 10px var(--accent);
+}
+
+.mode-btn {
+    font-size: 0.8rem;
+    padding: 8px 15px !important;
+}
