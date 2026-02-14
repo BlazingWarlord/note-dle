@@ -1,0 +1,131 @@
+:root {
+    --bg-color: #121213;
+    --key-bg: #2c2c2e;
+    --key-text: #ffffff;
+    --correct: #538d4e;
+    --wrong: #3a3a3c;
+    --accent: #6aaa64;
+    --delete: #8b0000;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: white;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 { letter-spacing: 2px; text-transform: uppercase; margin-bottom: 30px; }
+
+/* Game Board Styling */
+#game-board { display: grid; gap: 8px; margin-bottom: 30px; }
+.row { display: flex; gap: 8px; }
+.cell {
+    width: 58px; height: 58px;
+    border: 2px solid var(--wrong);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; font-weight: bold;
+    border-radius: 4px; transition: transform 0.1s;
+}
+
+/* Colors for Guessing */
+.green { background-color: var(--correct); border-color: var(--correct); }
+.grey { background-color: var(--wrong); border-color: var(--wrong); }
+
+/* Control Buttons (Listen, Submit, New) */
+.controls button {
+    background: #1a1a1b;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 12px 20px;
+    margin: 0 5px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.controls button:hover {
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 0 15px rgba(106, 170, 100, 0.4);
+}
+
+.controls button:disabled {
+    border-color: #3a3a3c;
+    color: #3a3a3c;
+    cursor: not-allowed;
+}
+
+.keypad {
+    display: flex; /* Switch to flex for a single row */
+    gap: 8px;
+    padding: 15px;
+    background: #1e1e1f;
+    border-radius: 12px;
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
+    margin-top: 30px;
+    width: auto;
+    max-width: 95vw; /* Keeps it responsive on mobile */
+    overflow-x: auto; /* Adds a scroll if the screen is too narrow */
+}
+
+.keypad button {
+    flex: 1; /* Makes all buttons equal width */
+    min-width: 45px;
+    height: 70px;
+    font-size: 1.4rem;
+    background: linear-gradient(145deg, #2c2c2e, #1a1a1b);
+    color: var(--key-text);
+    border: 1px solid #444;
+    border-radius: 6px;
+    box-shadow: 0 4px 0 #000;
+    transition: all 0.1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.keypad button:active {
+    box-shadow: 0 0px #000;
+    transform: translateY(4px);
+    background: var(--accent);
+}
+
+.keypad button#del-btn {
+    background: linear-gradient(145deg, #8b0000, #5a0000);
+    border-color: #a00;
+    min-width: 60px; /* Slightly wider for the backspace icon */
+}
+
+/* Animation for individual cells when correct */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.bounce {
+    animation: bounce 0.5s ease;
+}
+
+/* Confetti styling */
+.confetti {
+    position: fixed;
+    top: -10px;
+    user-select: none;
+    pointer-events: none;
+    z-index: 100;
+    font-size: 2rem;
+    animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}

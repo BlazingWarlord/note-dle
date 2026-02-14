@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Note-dle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>🎵 Note-dle</h1>
+    
+    <div id="game-board">
+        </div>
+
+    <div class="controls">
+        <button onclick="playSequence(targetSequence)">👂 Listen to Target</button>
+        <button id="submit-btn" disabled onclick="submitGuess()">Check Guess</button>
+        <button onclick="resetGame()">New Game</button>
+    </div>
+
+    <div class="keypad">
+        <button onclick="addNote('C')">C</button>
+        <button onclick="addNote('D')">D</button>
+        <button onclick="addNote('E')">E</button>
+        <button onclick="addNote('F')">F</button>
+        <button onclick="addNote('G')">G</button>
+        <button onclick="addNote('A')">A</button>
+        <button onclick="addNote('B')">B</button>
+        <button id="del-btn" onclick="deleteNote()">⌫</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
