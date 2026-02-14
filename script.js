@@ -2,7 +2,7 @@ const NOTES = { 'C': 261.6, 'D': 293.7, 'E': 329.6, 'F': 349.2, 'G': 392.0, 'A':
 let targetSequence = [];
 let currentGuess = [];
 let attempts = 0;
-const maxAttempts = 6;
+const maxAttempts = 4;
 const sequenceLength = 5;
 
 // Initialize Game
@@ -139,4 +139,5 @@ function launchConfetti() {
 }
 
 // Start game on load
+
 window.onload = initGame;
